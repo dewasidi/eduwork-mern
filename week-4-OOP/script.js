@@ -1,7 +1,8 @@
-$(document).ready(function () {
+export const jScript = $(document).ready(function () {
     $('#table-data').DataTable();
 });
-const dataArray =   
+
+export const dataArray =   
 [
 {'Nama':'Mahir Javascript', 'Penulis' : 'Eduwork', 'Tema' : 'Programming', 'Penerbit' : 'Eduwork', 'Tahun' : '2020' },
 {'Nama':'Mahir Laravel', 'Penulis' : 'Eduwork', 'Tema' : 'Programming', 'Penerbit' : 'Eduwork', 'Tahun' : '2021' },
@@ -15,7 +16,7 @@ const dataArray =
 {'Nama':'PHP 101', 'Penulis' : 'Eduwork', 'Tema' : 'Programming', 'Penerbit' : 'Eduwork', 'Tahun' : '2022' },
 ];
 
-function ekstrakData (data){
+export function ekstrakData (data){
     const tabel = document.getElementById('tabel-buku');
     for (const data of dataArray){
         const row = `
@@ -30,5 +31,6 @@ function ekstrakData (data){
                     tabel.innerHTML += row
     }
 };
-ekstrakData(dataArray);
-
+//ekstrakData(dataArray);
+//export default dataArray;
+//export{ekstrakData};
