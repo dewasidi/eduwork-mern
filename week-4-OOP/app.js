@@ -1,10 +1,3 @@
-import dataArray from "./script";
-import ekstrakData from ".script";
-import jScript from "./script";
-
-jScript;
-dataArray;
-ekstrakData;
-
+import {dataArray, ekstrakData} from "./script.js"
 
 ekstrakData(dataArray);
