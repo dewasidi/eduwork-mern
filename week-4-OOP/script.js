@@ -1,6 +1,6 @@
-//export const jScript = $(document).ready(function () {
-    //$('#table-data').DataTable();
-//});
+const jScript = $(document).ready(function () {
+    $('#table-data').DataTable();
+});
 
 const dataArray =   
 [
@@ -31,7 +31,6 @@ function ekstrakData (data){
                     tabel.innerHTML += row
     }
 };
+ekstrakData(dataArray);
 
-//ekstrakData(dataArray);
-//export default dataArray;
-export{ekstrakData,dataArray};
+export{ekstrakData,dataArray, jScript};
