@@ -1,3 +1,6 @@
+$(document).ready(function () {
+    $('#table-data').DataTable();
+});
 const dataArray =   
 [
 {'Nama':'Mahir Javascript', 'Penulis' : 'Eduwork', 'Tema' : 'Programming', 'Penerbit' : 'Eduwork', 'Tahun' : '2020' },
@@ -10,9 +13,7 @@ const dataArray =
 {'Nama':'NodeJs', 'Penulis' : 'Eduwork', 'Tema' : 'Programming', 'Penerbit' : 'Eduwork', 'Tahun' : '2021' },
 {'Nama':'MySQl for Data ', 'Penulis' : 'Eduwork', 'Tema' : 'Programming', 'Penerbit' : 'Eduwork', 'Tahun' : '2021' },
 {'Nama':'PHP 101', 'Penulis' : 'Eduwork', 'Tema' : 'Programming', 'Penerbit' : 'Eduwork', 'Tahun' : '2022' },
-]
-
-
+];
 
 function ekstrakData (data){
     const tabel = document.getElementById('tabel-buku');
@@ -28,5 +29,6 @@ function ekstrakData (data){
                     `
                     tabel.innerHTML += row
     }
-}
-ekstrakData(dataArray)
+};
+ekstrakData(dataArray);
+
