@@ -15,11 +15,9 @@
 const data = new XMLHttpRequest();
 data.open('GET', 'https://jsonplaceholder.typicode.com/users');
 data.addEventListener("load", function (){
-    const json = JSON.parse(data.responseText);
-    //const tabel = document.getElementById('name');
-    //tabel.textContent = json.name;
-    //document.body.appendChild(tabel);
-    const tabel = document.getElementById('data-table');
+    if(data.status===200){
+        const json = JSON.parse(data.responseText);
+        const tabel = document.getElementById('data-table');
     for (const dataUser of json){
         const row = `
                         <tr>
@@ -33,7 +31,16 @@ data.addEventListener("load", function (){
                     `
                     tabel.innerHTML += row
     }
-});
+    } else{
+        alert("NA")
+        }
+    });
+
+    //const tabel = document.getElementById('name');
+    //tabel.textContent = json.name;
+    //document.body.appendChild(tabel);
+    
+
 data.send();
 // function ekstrakData (data){
 //     const tabel = document.getElementById('data-table');
