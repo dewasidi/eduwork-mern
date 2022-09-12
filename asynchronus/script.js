@@ -8,11 +8,9 @@ function getData(url,cb) {
     xhr.open("GET", url);
 xhr.send();
 }
-const data = getData("https://jsonplaceholder.typicode.com/users", function(data){
-    ekstrakData(data);
-});
+//const data = getData("https://jsonplaceholder.typicode.com/users", ekstrakData(data));
 
-function ekstrakData (data){
+const data = getData("https://jsonplaceholder.typicode.com/users", function(data){
     const tabel = document.getElementById('data-table');
     for (const dataUser of data){
         const row = `
@@ -26,7 +24,23 @@ function ekstrakData (data){
                     `
                     tabel.innerHTML += row
     }
-};
+});
+
+// function ekstrakData (data){
+//     const tabel = document.getElementById('data-table');
+//     for (const dataUser of data){
+//         const row = `
+//                         <tr>
+//                             <td>${dataUser.id}</td>
+//                             <td>${dataUser.username}</td>
+//                             <td>${dataUser.email}</td>
+//                             <td>${dataUser.addres['name']}</td>
+//                             <td>${dataUser.company['name']}</td>
+//                         </tr>
+//                     `
+//                     tabel.innerHTML += row
+//     }
+// };
 
 
 
