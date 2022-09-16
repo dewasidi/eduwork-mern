@@ -15,11 +15,12 @@ fetch('https://newsapi.org/v2/everything?q=apple&from=2022-09-14&to=2022-09-14&s
 
 const searchButton = document.querySelector(".buttonGo");
 searchButton.addEventListener("click", function(){
+    event.preventDefault();
     const searchText = document.querySelector(".searchInput");
     const inputValue = searchText.value;
 
     fetch(`https://newsapi.org/v2/everything?q=${inputValue}&apiKey=cbf084b54cc24806b3af1d5d05468cd5`)
-    .then((res) => res.json())
+    .then(res => res.json())
     .then((res) => {
         const news = res.articles;
         let card = "";
@@ -55,7 +56,7 @@ searchButton.addEventListener("click", function(){
 
 function showNews(n){
     return `
-            <div class="col-3 mt-3 justify-content-center">
+            <div class="col-4 mt-3 justify-content-center">
             <div class="card" style="width: 18rem;">
             <img src="${n.urlToImage}" class="card-img-top p-2" alt="..." style=' height: 10rem; object-fit:cover;'>
             <div class="card-body">
