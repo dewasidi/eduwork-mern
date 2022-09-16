@@ -1,6 +1,3 @@
-const searchBtn = document.getElementById('buttonGo');
-searchBtn.addEventListener('click', getNews);
-
 fetch('https://newsapi.org/v2/everything?q=apple&from=2022-09-14&to=2022-09-14&sortBy=popularity&apiKey=cbf084b54cc24806b3af1d5d05468cd5')
 
 .then(res =>res.json())
@@ -16,25 +13,44 @@ fetch('https://newsapi.org/v2/everything?q=apple&from=2022-09-14&to=2022-09-14&s
     root.innerHTML = card;
 })
 
-function getNews(){
-    fetch('https://newsapi.org/v2/everything?q=apple&from=2022-09-14&to=2022-09-14&sortBy=popularity&apiKey=cbf084b54cc24806b3af1d5d05468cd5')
+const searchButton = document.querySelector(".buttonGo");
+searchButton.addEventListener("click", function(){
+    const searchText = document.querySelector(".searchInput");
+    const inputValue = searchText.value;
 
-    .then(res =>res.json())
+    fetch(`https://newsapi.org/v2/everything?q=${inputValue}&apiKey=cbf084b54cc24806b3af1d5d05468cd5`)
+    .then((res) => res.json())
     .then((res) => {
+        const news = res.articles;
+        let card = "";
 
-        let searchInputTxt = document.getElementById('search-input').value.trim();
-    
-        if(res.news) {
-        
-        res.news.forEach((n) => {
+        news.forEach((n) => {
             card += showNews(n);
         });
         const root = document.getElementById("row-data")
         root.innerHTML = card;
-        
-    }
     });
-}
+});
+
+// function getNews(){
+//     fetch('https://newsapi.org/v2/everything?q=keyword&apiKey=cbf084b54cc24806b3af1d5d05468cd5')
+
+//     .then(res =>res.json())
+//     .then((res) => {
+
+//         let searchInputTxt = document.getElementById('search-input').value.trim();
+    
+//         if(res.news) {
+        
+//         res.news.forEach((n) => {
+//             card += showNews(n);
+//         });
+//         const root = document.getElementById("row-data")
+//         root.innerHTML = card;
+        
+//     }
+//     });
+// }
 
 
 function showNews(n){
